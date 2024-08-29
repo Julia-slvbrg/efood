@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const colors = {
   red: '#E66767',
@@ -25,4 +25,14 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     margin: 0 auto;
   }
+`
+export const Logo = styled.img`
+  width: 128px;
+  height: 56px;
+`
+export const ContainerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
