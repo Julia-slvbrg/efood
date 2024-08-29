@@ -2,7 +2,6 @@ import Restaurant from '../../models/Restaurant'
 import Card from '../Card'
 import { List } from './styles'
 
-
 export type Props = {
   restaurantPlace: Restaurant[]
 }
