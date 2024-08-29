@@ -16,6 +16,7 @@ export const Container = styled.div`
   background-color: ${colors.white};
   color: ${colors.red};
   border: solid 1px ${colors.red};
+  border-top: none;
   padding: 8px;
 `
 export const Info = styled.div`

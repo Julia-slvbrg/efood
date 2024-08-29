@@ -35,7 +35,7 @@ export const Card = ({ placeName, info, image, rate, description }: Props) => {
           </div>
         </TitleContainer>
         <Description>{description}</Description>
-        <Tag position="bottom">Saiba mais</Tag>
+        <Tag $position="bottom">Saiba mais</Tag>
       </Container>
     </CardWrapper>
   )
