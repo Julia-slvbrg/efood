@@ -2,6 +2,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Header from './components/Header'
 import { GlobalStyle } from './styles'
 import RoutesComponent from './routes'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div className="container">
         <RoutesComponent />
       </div>
+      <Footer />
     </BrowserRouter>
   )
 }

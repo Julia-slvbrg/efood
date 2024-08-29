@@ -1,18 +1,10 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { colors, ContainerWrapper } from '../../styles'
 
-export const Container = styled.header`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+export const Container = styled(ContainerWrapper)`
   background-repeat: no-repeat;
   background-size: cover;
-`
-export const Logo = styled.img`
-  margin-top: 64px;
-  width: 128px;
-  height: 56px;
+  padding-top: 64px;
 `
 export const Title = styled.h1`
   font-weight: 900;
