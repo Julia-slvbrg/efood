@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.body`
+export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 56px 0 120px 0;

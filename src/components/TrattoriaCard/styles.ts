@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
 
-export const Container = styled.section`
+export const Container = styled.div`
   background-color: ${colors.red};
   padding: 8px;
   color: ${colors.bege};
