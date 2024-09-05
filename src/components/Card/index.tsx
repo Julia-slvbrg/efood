@@ -8,6 +8,7 @@ import {
   Name,
   TitleContainer
 } from './styles'
+import { Link } from 'react-router-dom'
 
 type Props = {
   placeName: string
@@ -35,7 +36,9 @@ export const Card = ({ placeName, info, image, rate, description }: Props) => {
           </div>
         </TitleContainer>
         <Description>{description}</Description>
-        <Tag $position="bottom">Saiba mais</Tag>
+        <Link to="/la-dolce-vita-trattoria">
+          <Tag $position="bottom">Saiba mais</Tag>
+        </Link>
       </Container>
     </CardWrapper>
   )
