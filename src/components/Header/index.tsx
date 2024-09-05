@@ -25,18 +25,19 @@ export const Header = ({ $layout = 'main' }: Props) => {
     } else {
       return (
         <>
-          <Container
-            $layout="restaurant"
-            style={{ backgroundImage: `url(${background})` }}
-          >
-            <p>Restaurantes</p>
-            <Link to="/">
-              <Logo src={logo} alt="efood" />
-            </Link>
-            <div>
-              <p>0 produtos(s) no carrinho</p>
-            </div>
-          </Container>
+
+            <Container
+              $layout="restaurant"
+              style={{ backgroundImage: `url(${background})` }}
+            >
+              <p>Restaurantes</p>
+              <Link to="/">
+                <Logo src={logo} alt="efood" />
+              </Link>
+              <div>
+                <p>0 produtos(s) no carrinho</p>
+              </div>
+            </Container>
           <Banner />
         </>
       )
