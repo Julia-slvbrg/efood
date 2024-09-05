@@ -5,11 +5,7 @@ import { Logo } from '../../styles'
 import { Link, useLocation } from 'react-router-dom'
 import Banner from '../Banner'
 
-export type Props = {
-  $layout?: 'main' | 'restaurant'
-}
-
-export const Header = ({ $layout = 'main' }: Props) => {
+export const Header = () => {
   const location = useLocation()
 
   const chooseHeader = () => {
@@ -25,19 +21,18 @@ export const Header = ({ $layout = 'main' }: Props) => {
     } else {
       return (
         <>
-
-            <Container
-              $layout="restaurant"
-              style={{ backgroundImage: `url(${background})` }}
-            >
-              <p>Restaurantes</p>
-              <Link to="/">
-                <Logo src={logo} alt="efood" />
-              </Link>
-              <div>
-                <p>0 produtos(s) no carrinho</p>
-              </div>
-            </Container>
+          <Container
+            $layout="restaurant"
+            style={{ backgroundImage: `url(${background})` }}
+          >
+            <p>Restaurantes</p>
+            <Link to="/">
+              <Logo src={logo} alt="efood" />
+            </Link>
+            <div>
+              <p>0 produtos(s) no carrinho</p>
+            </div>
+          </Container>
           <Banner />
         </>
       )

@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 import { colors, ContainerWrapper } from '../../styles'
-import { Props } from '.'
 
-export const Container = styled(ContainerWrapper)<Props>`
+export const Container = styled(ContainerWrapper)<{ $layout?: string }>`
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 64px;
