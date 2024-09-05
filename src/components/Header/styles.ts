@@ -8,7 +8,7 @@ export const Container = styled(ContainerWrapper)<Props>`
   padding-top: 64px;
   flex-direction: ${(props) => (props.$layout === 'restaurant' ? 'row' : null)};
   justify-content: ${(props) =>
-    props.$layout === 'restaurant' ? 'space-around' : null};
+    props.$layout === 'restaurant' ? 'space-evenly' : null};
   padding-bottom: ${(props) =>
     props.$layout === 'restaurant' ? '64px' : null};
 
