@@ -1,15 +1,17 @@
 import styled from 'styled-components'
 import { colors, ContainerWrapper } from '../../styles'
 
-export const Container = styled(ContainerWrapper)<{ $layout?: string }>`
+export const Wrapper = styled(ContainerWrapper)<{ $layout?: string }>`
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 64px;
+`
+export const Container = styled(ContainerWrapper)<{ $layout?: string }>`
   flex-direction: ${(props) => (props.$layout === 'restaurant' ? 'row' : null)};
   justify-content: ${(props) =>
-    props.$layout === 'restaurant' ? 'space-evenly' : null};
+    props.$layout === 'restaurant' ? 'space-between' : null};
+  padding-top: 64px;
   padding-bottom: ${(props) =>
-    props.$layout === 'restaurant' ? '64px' : null};
+    props.$layout === 'restaurant' ? '64px ' : null};
 
   p {
     color: ${colors.red};

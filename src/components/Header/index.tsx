@@ -1,6 +1,6 @@
 import logo from '../../assets/images/logo.svg'
 import background from '../../assets/images/background.svg'
-import { Container, Title } from './styles'
+import { Wrapper, Container, Title } from './styles'
 import { Logo } from '../../styles'
 import { Link, useLocation } from 'react-router-dom'
 import Banner from '../Banner'
@@ -21,18 +21,22 @@ export const Header = () => {
     } else {
       return (
         <>
-          <Container
+          <Wrapper
             $layout="restaurant"
             style={{ backgroundImage: `url(${background})` }}
           >
-            <p>Restaurantes</p>
-            <Link to="/">
-              <Logo src={logo} alt="efood" />
-            </Link>
-            <div>
-              <p>0 produtos(s) no carrinho</p>
+            <div className="container">
+              <Container $layout="restaurant">
+                <p>Restaurantes</p>
+                <Link to="/">
+                  <Logo src={logo} alt="efood" />
+                </Link>
+                <div>
+                  <p>0 produtos(s) no carrinho</p>
+                </div>
+              </Container>
             </div>
-          </Container>
+          </Wrapper>
           <Banner />
         </>
       )
