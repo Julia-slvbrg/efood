@@ -1,22 +1,20 @@
+import MenuModal from '../MenuModal'
 import { Container } from './styles'
+import { useState } from 'react'
 
-type Props = {
+export type Props = {
   dish: string
   description: string
   picture: string
   serving: string
   price: number
 }
-export const MenuCard = ({
-  dish,
-  description,
-  picture,
-  serving,
-  price
-}: Props) => {
+const MenuCard = ({ dish, description, picture, serving, price }: Props) => {
+  const [openModal, setOpenModal] = useState(false)
+
   const getDescription = (description: string) => {
-    if (description.length > 132) {
-      return description.slice(0, 129) + '...'
+    if (description.length > 160) {
+      return description.slice(0, 158) + '...'
     }
     return description
   }
@@ -28,8 +26,19 @@ export const MenuCard = ({
 
         <h4>{dish}</h4>
         <p>{getDescription(description)}</p>
-        <button>Adicionar ao carrinho</button>
+        <button onClick={() => setOpenModal(true)}>
+          Adicionar ao carrinho
+        </button>
       </Container>
+      <MenuModal
+        openModal={openModal}
+        setOpenModal={() => setOpenModal(!openModal)}
+        dish={dish}
+        description={description}
+        picture={picture}
+        serving={serving}
+        price={price}
+      />
     </>
   )
 }
