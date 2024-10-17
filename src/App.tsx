@@ -10,8 +10,8 @@ function App() {
       <GlobalStyle />
       <Header />
       <div className="container">
-        <RoutesComponent />
       </div>
+        <RoutesComponent />
       <Footer />
     </BrowserRouter>
   )

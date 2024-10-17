@@ -8,6 +8,10 @@ export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
+  > img {
+    height: 217px;
+  }
+
   ${TagContainer} {
     margin-right: 8px;
   }
@@ -18,6 +22,7 @@ export const Container = styled.div`
   border: solid 1px ${colors.red};
   border-top: none;
   padding: 8px;
+
 `
 export const Info = styled.div`
   position: absolute;
@@ -44,4 +49,5 @@ export const Description = styled.p`
   margin: 16px 0;
   font-size: 14px;
   font-weight: 400;
+  height: 88px;
 `

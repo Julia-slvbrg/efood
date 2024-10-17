@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Tag from '../Tags'
 import star from '../../assets/images/star.svg'
 import {
@@ -8,24 +9,24 @@ import {
   Name,
   TitleContainer
 } from './styles'
-import { Link } from 'react-router-dom'
 
 type Props = {
+  id: number
   placeName: string
-  info: string[]
+  highlighted: boolean
+  type: string
   image: string
-  rate: string
+  rate: number
   description: string
 }
 
-export const Card = ({ placeName, info, image, rate, description }: Props) => {
+export const Card = ({ id, placeName, highlighted, type, image, rate, description }: Props) => {
   return (
     <CardWrapper>
       <img src={image} alt="Restaurante" />
       <Info>
-        {info.map((element, index) => (
-          <Tag key={index}>{element}</Tag>
-        ))}
+        {highlighted && (<Tag>Destaque da semana</Tag>)}
+        <Tag>{type.charAt(0).toUpperCase() + type.slice(1)}</Tag>
       </Info>
       <Container>
         <TitleContainer>
@@ -36,7 +37,7 @@ export const Card = ({ placeName, info, image, rate, description }: Props) => {
           </div>
         </TitleContainer>
         <Description>{description}</Description>
-        <Link to="/la-dolce-vita-trattoria">
+        <Link to={`/restaurant/${id}`}>
           <Tag $position="bottom">Saiba mais</Tag>
         </Link>
       </Container>

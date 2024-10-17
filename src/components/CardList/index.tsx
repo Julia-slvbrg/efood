@@ -1,24 +1,31 @@
-import Restaurant from '../../models/Restaurant'
+import { Restaurant } from '../../pages/Home'
 import Card from '../Card'
-import { List } from './styles'
+import { List, Wrapper } from './styles'
 
 export type Props = {
-  restaurantPlace: Restaurant[]
+  restaurants: Restaurant[]
 }
 
-export const CardList = ({ restaurantPlace }: Props) => {
+const CardList = ({ restaurants }: Props) => {
   return (
-    <List>
-      {restaurantPlace.map((restaurant) => (
-        <Card
-          key={restaurant.id}
-          placeName={restaurant.placeName}
-          info={restaurant.info}
-          image={restaurant.image}
-          rate={restaurant.rate}
-          description={restaurant.description}
-        />
-      ))}
-    </List>
+    <Wrapper>
+      <List className="container">
+        {restaurants.map((restaurant) => (
+          <li key={restaurant.id}>
+            <Card
+              id={restaurant.id}
+              placeName={restaurant.titulo}
+              highlighted={restaurant.destacado}
+              type={restaurant.tipo}
+              image={restaurant.capa}
+              rate={restaurant.avaliacao}
+              description={restaurant.descricao}
+            />
+          </li>
+        ))}
+      </List>
+    </Wrapper>
   )
 }
+
+export default CardList
