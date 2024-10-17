@@ -6,6 +6,11 @@ export const Container = styled.div`
   padding: 8px;
   color: ${colors.bege};
 
+  img {
+    height: 167px;
+    width: 304px;
+  }
+
   h4 {
     font-size: 16px;
     line-height: 19px;

@@ -1,13 +1,11 @@
 import logo from '../../assets/images/logo.svg'
 import background from '../../assets/images/background.svg'
-import { Wrapper, Container, Title } from './styles'
+import { Container, LinkText, Title, Wrapper } from './styles'
 import { Logo } from '../../styles'
 import { Link, useLocation } from 'react-router-dom'
-import Banner from '../Banner'
 
-export const Header = () => {
+const Header = () => {
   const location = useLocation()
-
   const chooseHeader = () => {
     if (location.pathname === '/') {
       return (
@@ -27,7 +25,9 @@ export const Header = () => {
           >
             <div className="container">
               <Container $layout="restaurant">
-                <p>Restaurantes</p>
+                <LinkText to="/">
+                  <p>Restaurantes</p>
+                </LinkText>
                 <Link to="/">
                   <Logo src={logo} alt="efood" />
                 </Link>
@@ -37,7 +37,6 @@ export const Header = () => {
               </Container>
             </div>
           </Wrapper>
-          <Banner />
         </>
       )
     }
