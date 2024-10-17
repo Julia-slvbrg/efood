@@ -20,6 +20,7 @@ export const Container = styled.div`
   p {
     font-size: 14px;
     line-height: 22px;
+    height: 88px;
   }
 
   button {
@@ -39,5 +40,18 @@ export const Container = styled.div`
     &:active {
       text-decoration: underline;
     }
+  }
+`
+export const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  display: none;
+
+  &.visible {
+    display: flex;
   }
 `
