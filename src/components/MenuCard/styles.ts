@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
+import { BtnContainer } from '../Button/styles'
 
 export const Container = styled.div`
   background-color: ${colors.red};
@@ -23,23 +24,10 @@ export const Container = styled.div`
     height: 88px;
   }
 
-  button {
+  ${BtnContainer} {
     margin-top: 8px;
-    width: 100%;
-    height: 24px;
-    background-color: ${colors.bege};
-    color: ${colors.red};
-    font-size: 14px;
-    line-height: 16px;
-    text-align: center;
-    font-weight: 700;
     padding: 4px 80px;
-    border: none;
-    cursor: pointer;
-
-    &:active {
-      text-decoration: underline;
-    }
+    width: 100%;
   }
 `
 export const Modal = styled.div`

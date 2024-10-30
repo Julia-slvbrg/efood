@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
+import { BtnContainer } from '../Button/styles'
 
 export const Background = styled.div`
   position: fixed;
@@ -60,21 +61,7 @@ export const TextWrapper = styled.div`
     }
   }
 
-  button {
+  ${BtnContainer} {
     margin: 16px 0 56px 0;
-    background-color: ${colors.bege};
-    color: red;
-    border: none;
-    width: 240px;
-    height: 24px;
-    font-size: 14px;
-    line-height: 16px;
-    font-weight: 700;
-    padding: 4px 8px;
-    cursor: pointer;
-
-    &:active {
-      text-decoration: underline;
-    }
   }
 `

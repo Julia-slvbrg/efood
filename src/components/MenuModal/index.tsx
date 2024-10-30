@@ -9,6 +9,7 @@ import {
   Picture,
   TextWrapper
 } from './styles'
+import Button from '../Button'
 
 type ModalProps = MenuCardProps & {
   openModal: boolean
@@ -59,7 +60,9 @@ const MenuModal = ({
                 <p>{description}</p>
                 <p>Serve: {serving}</p>
               </div>
-              <button>Adicionar ao carrinho - {formatPrice(price)}</button>
+              <Button title="Adicionar ao carrinho">
+                Adicionar ao carrinho - {formatPrice(price)}
+              </Button>
             </TextWrapper>
           </Info>
         </ModalContainer>
