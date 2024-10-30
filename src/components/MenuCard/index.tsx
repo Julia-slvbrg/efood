@@ -1,3 +1,4 @@
+import Button from '../Button'
 import MenuModal from '../MenuModal'
 import { Container } from './styles'
 import { useState } from 'react'
@@ -26,9 +27,12 @@ const MenuCard = ({ dish, description, picture, serving, price }: Props) => {
 
         <h4>{dish}</h4>
         <p>{getDescription(description)}</p>
-        <button onClick={() => setOpenModal(true)}>
+        <Button
+          title="Adicionar ao carrinho"
+          onClick={() => setOpenModal(true)}
+        >
           Adicionar ao carrinho
-        </button>
+        </Button>
       </Container>
       <MenuModal
         openModal={openModal}
