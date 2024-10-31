@@ -22,6 +22,16 @@ export const Container = styled(ContainerWrapper)<{ $layout?: string }>`
     line-height: 21px;
     text-decoration: none;
   }
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:active {
+      text-decoration: underline;
+    }
+  }
 `
 export const LinkText = styled(Link)`
   color: ${colors.red};
