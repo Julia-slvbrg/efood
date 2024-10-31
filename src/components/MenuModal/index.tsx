@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Props as MenuCardProps } from '../MenuCard'
 import close_icon from '../../assets/images/icons/close.svg'
 import {
@@ -10,21 +11,31 @@ import {
   TextWrapper
 } from './styles'
 import Button from '../Button'
+import { add, open } from '../../store/reducers/cart'
 
 type ModalProps = MenuCardProps & {
   openModal: boolean
   setOpenModal: () => void
 }
 
-const MenuModal = ({
-  openModal,
-  setOpenModal,
-  dish,
-  description,
-  picture,
-  serving,
-  price
-}: ModalProps) => {
+export const formatPrice = (price: number) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(price)
+}
+
+const MenuModal = ({ openModal, setOpenModal, dish, restaurantId }: ModalProps) => {
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add( {
+      dish,
+      restaurantId
+    } ))
+    dispatch(open())
+  }
+
   useEffect(() => {
     const closePopUp = (e: any) => {
       if (e.key === 'Escape' && openModal) {
@@ -36,13 +47,6 @@ const MenuModal = ({
     return () => window.removeEventListener('keydown', closePopUp)
   }, [openModal])
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(price)
-  }
-
   if (openModal) {
     return (
       <Background onClick={setOpenModal}>
@@ -53,15 +57,15 @@ const MenuModal = ({
             onClick={setOpenModal}
           />
           <Info>
-            <Picture src={picture} alt="Prato" />
+            <Picture src={dish.foto} alt="Prato" />
             <TextWrapper>
-              <h4>{dish}</h4>
+              <h4>{dish.nome}</h4>
               <div>
-                <p>{description}</p>
-                <p>Serve: {serving}</p>
+                <p>{dish.descricao}</p>
+                <p>Serve: {dish.porcao}</p>
               </div>
-              <Button title="Adicionar ao carrinho">
-                Adicionar ao carrinho - {formatPrice(price)}
+              <Button title="Adicionar ao carrinho" onClick={addToCart}>
+                Adicionar ao carrinho - {formatPrice(dish.preco)}
               </Button>
             </TextWrapper>
           </Info>

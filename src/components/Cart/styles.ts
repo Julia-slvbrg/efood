@@ -72,6 +72,7 @@ export const CartItem = styled.li`
     position: absolute;
     right: 0;
     top: 76px;
+    cursor: pointer;
     img {
       width: 16px;
       height: 16px;

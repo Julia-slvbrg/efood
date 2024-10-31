@@ -13,14 +13,7 @@ const MenuCardList = ({ restaurant }: Props) => {
   return (
     <>
       {restaurant.cardapio.map((dish, index) => (
-        <MenuCard
-          key={index}
-          dish={dish.nome}
-          description={dish.descricao}
-          picture={dish.foto}
-          serving={dish.porcao}
-          price={dish.preco}
-        />
+        <MenuCard key={index} dish={dish} restaurantId={restaurant.id} />
       ))}
     </>
   )

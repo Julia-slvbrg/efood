@@ -1,17 +1,37 @@
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
 import Button from '../Button'
 import MenuModal from '../MenuModal'
 import { Container } from './styles'
-import { useState } from 'react'
+import { RootReducer } from '../../store'
 
 export type Props = {
-  dish: string
-  description: string
-  picture: string
-  serving: string
-  price: number
+  restaurantId: number
+  dish: {
+    id: number
+    foto: string
+    preco: number
+    nome: string
+    descricao: string
+    porcao: string
+  }
 }
-const MenuCard = ({ dish, description, picture, serving, price }: Props) => {
+const MenuCard = ({ dish, restaurantId }: Props) => {
   const [openModal, setOpenModal] = useState(false)
+  const { items } = useSelector((state: RootReducer) => state.cart)
+
+  const handleButtonClick = () => {
+    if (items.length > 0 && restaurantId !== items[0].restaurantId) {
+      const confirmClear = window.confirm(
+        'Você só pode adicionar produtos do mesmo restaurante ao carrinho. Se continuar, os produtos já adicionados serão removidos. Deseja continuar?'
+      )
+      if (confirmClear) {
+        setOpenModal(true)
+      }
+    } else {
+      setOpenModal(true)
+    }
+  }
 
   const getDescription = (description: string) => {
     if (description.length > 160) {
@@ -23,14 +43,11 @@ const MenuCard = ({ dish, description, picture, serving, price }: Props) => {
   return (
     <>
       <Container>
-        <img src={picture} alt="Prato" />
+        <img src={dish.foto} alt="Prato" />
 
-        <h4>{dish}</h4>
-        <p>{getDescription(description)}</p>
-        <Button
-          title="Adicionar ao carrinho"
-          onClick={() => setOpenModal(true)}
-        >
+        <h4>{dish.nome}</h4>
+        <p>{getDescription(dish.descricao)}</p>
+        <Button title="Adicionar ao carrinho" onClick={handleButtonClick}>
           Adicionar ao carrinho
         </Button>
       </Container>
@@ -38,10 +55,7 @@ const MenuCard = ({ dish, description, picture, serving, price }: Props) => {
         openModal={openModal}
         setOpenModal={() => setOpenModal(!openModal)}
         dish={dish}
-        description={description}
-        picture={picture}
-        serving={serving}
-        price={price}
+        restaurantId={restaurantId}
       />
     </>
   )
