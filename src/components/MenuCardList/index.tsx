@@ -1,4 +1,3 @@
-import { Restaurant } from '../../pages/Home'
 import MenuCard from '../MenuCard'
 
 type Props = {

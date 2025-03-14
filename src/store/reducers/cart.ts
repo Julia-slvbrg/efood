@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Props as DishProps } from '../../components/MenuCard'
 
 type CartState = {
   items: DishProps[]
-  isOpen: boolean
+  isCartOpen: boolean
+  isCheckout: boolean
 }
 
 const initialState: CartState = {
   items: [],
-  isOpen: false
+  isCartOpen: false,
+  isCheckout: false
 }
 
 const cartSlice = createSlice({
@@ -44,14 +45,24 @@ const cartSlice = createSlice({
         (item) => item.dish.nome !== action.payload
       )
     },
-    open: (state) => {
-      state.isOpen = true
+    clear: (state) => {
+      state.items = []
+    },
+    openCart: (state) => {
+      state.isCartOpen = true
     },
     close: (state) => {
-      state.isOpen = false
+      state.isCartOpen = false
+    },
+    checkout: (state) => {
+      state.isCheckout = true
+    },
+    closeCheckout: (state) => {
+      state.isCheckout = false
     }
   }
 })
 
-export const { add, remove, open, close } = cartSlice.actions
+export const { add, remove, clear, openCart, close, checkout, closeCheckout } =
+  cartSlice.actions
 export default cartSlice.reducer

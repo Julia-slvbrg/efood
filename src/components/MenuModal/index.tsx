@@ -1,7 +1,12 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { Props as MenuCardProps } from '../MenuCard'
+
+import Button from '../Button'
+
 import close_icon from '../../assets/images/icons/close.svg'
+
+import { add, openCart } from '../../store/reducers/cart'
+
 import {
   Background,
   CloseIcon,
@@ -10,30 +15,29 @@ import {
   Picture,
   TextWrapper
 } from './styles'
-import Button from '../Button'
-import { add, open } from '../../store/reducers/cart'
+import { formatPrice } from '../../utils'
 
-type ModalProps = MenuCardProps & {
+type ModalProps = DishProps & {
   openModal: boolean
   setOpenModal: () => void
 }
 
-export const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(price)
-}
-
-const MenuModal = ({ openModal, setOpenModal, dish, restaurantId }: ModalProps) => {
+const MenuModal = ({
+  openModal,
+  setOpenModal,
+  dish,
+  restaurantId
+}: ModalProps) => {
   const dispatch = useDispatch()
 
   const addToCart = () => {
-    dispatch(add( {
-      dish,
-      restaurantId
-    } ))
-    dispatch(open())
+    dispatch(
+      add({
+        dish,
+        restaurantId
+      })
+    )
+    dispatch(openCart())
   }
 
   useEffect(() => {
@@ -64,7 +68,11 @@ const MenuModal = ({ openModal, setOpenModal, dish, restaurantId }: ModalProps) 
                 <p>{dish.descricao}</p>
                 <p>Serve: {dish.porcao}</p>
               </div>
-              <Button title="Adicionar ao carrinho" onClick={addToCart}>
+              <Button
+                title="Adicionar ao carrinho"
+                onClick={addToCart}
+                type="button"
+              >
                 Adicionar ao carrinho - {formatPrice(dish.preco)}
               </Button>
             </TextWrapper>

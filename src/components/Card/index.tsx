@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
+
 import Tag from '../Tags'
+
 import star from '../../assets/images/star.svg'
 import {
   CardWrapper,
@@ -20,12 +22,20 @@ type Props = {
   description: string
 }
 
-export const Card = ({ id, placeName, highlighted, type, image, rate, description }: Props) => {
+export const Card = ({
+  id,
+  placeName,
+  highlighted,
+  type,
+  image,
+  rate,
+  description
+}: Props) => {
   return (
     <CardWrapper>
       <img src={image} alt="Restaurante" />
       <Info>
-        {highlighted && (<Tag>Destaque da semana</Tag>)}
+        {highlighted && <Tag>Destaque da semana</Tag>}
         <Tag>{type.charAt(0).toUpperCase() + type.slice(1)}</Tag>
       </Info>
       <Container>
