@@ -31,6 +31,12 @@ const Checkout = () => {
     dispatch(openCart())
   }
 
+  const goToHome = () => {
+    dispatch(closeCheckout())
+    navigate('/')
+    window.location.reload()
+  }
+
   const form = useFormik({
     initialValues: {
       recipientFullName: '',
@@ -138,12 +144,6 @@ const Checkout = () => {
   useEffect(() => {
     if (isSuccess) dispatch(clear())
   }, [isSuccess])
-
-  const goToHome = () => {
-    dispatch(closeCheckout())
-    navigate('/')
-    return window.location.reload()
-  }
 
   return (
     <S.CartContainer className={isCheckout ? 'is-open' : ''}>
