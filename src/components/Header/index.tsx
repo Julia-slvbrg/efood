@@ -7,7 +7,7 @@ import background from '../../assets/images/background.svg'
 import { openCart } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
 
-import { Container, LinkText, Title, Wrapper } from './styles'
+import * as S from './styles'
 import { Logo } from '../../styles'
 
 const Header = () => {
@@ -22,34 +22,36 @@ const Header = () => {
   const chooseHeader = () => {
     if (location.pathname === '/') {
       return (
-        <Container style={{ backgroundImage: `url(${background})` }}>
+        <S.Container style={{ backgroundImage: `url(${background})` }}>
           <Link to="/">
             <Logo src={logo} alt="efood" />
           </Link>
-          <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
-        </Container>
+          <S.Title>
+            Viva experiências gastronômicas no conforto da sua casa
+          </S.Title>
+        </S.Container>
       )
     } else {
       return (
         <>
-          <Wrapper
+          <S.Wrapper
             $layout="restaurant"
             style={{ backgroundImage: `url(${background})` }}
           >
             <div className="container">
-              <Container $layout="restaurant">
-                <LinkText to="/">
+              <S.Container $layout="restaurant">
+                <S.LinkText to="/">
                   <p>Restaurantes</p>
-                </LinkText>
+                </S.LinkText>
                 <Link to="/">
                   <Logo src={logo} alt="efood" />
                 </Link>
                 <button onClick={openCartSide}>
                   <p>{items.length} produtos(s) no carrinho</p>
                 </button>
-              </Container>
+              </S.Container>
             </div>
-          </Wrapper>
+          </S.Wrapper>
         </>
       )
     }

@@ -1,6 +1,6 @@
 import Card from '../Card'
 
-import { List, Wrapper } from './styles'
+import * as S from './styles'
 
 export type Props = {
   restaurants: Restaurant[]
@@ -8,8 +8,8 @@ export type Props = {
 
 const CardList = ({ restaurants }: Props) => {
   return (
-    <Wrapper>
-      <List className="container">
+    <S.Wrapper>
+      <S.List className="container">
         {restaurants.map((restaurant) => (
           <li key={restaurant.id}>
             <Card
@@ -23,8 +23,8 @@ const CardList = ({ restaurants }: Props) => {
             />
           </li>
         ))}
-      </List>
-    </Wrapper>
+      </S.List>
+    </S.Wrapper>
   )
 }
 

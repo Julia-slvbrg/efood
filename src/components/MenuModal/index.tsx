@@ -7,14 +7,7 @@ import close_icon from '../../assets/images/icons/close.svg'
 
 import { add, openCart } from '../../store/reducers/cart'
 
-import {
-  Background,
-  CloseIcon,
-  Info,
-  ModalContainer,
-  Picture,
-  TextWrapper
-} from './styles'
+import * as S from './styles'
 import { formatPrice } from '../../utils'
 
 type ModalProps = DishProps & {
@@ -53,16 +46,16 @@ const MenuModal = ({
 
   if (openModal) {
     return (
-      <Background onClick={setOpenModal}>
-        <ModalContainer>
-          <CloseIcon
+      <S.Background onClick={setOpenModal}>
+        <S.ModalContainer>
+          <S.CloseIcon
             src={close_icon}
             alt="Ícone de fechar"
             onClick={setOpenModal}
           />
-          <Info>
-            <Picture src={dish.foto} alt="Prato" />
-            <TextWrapper>
+          <S.Info>
+            <S.Picture src={dish.foto} alt="Prato" />
+            <S.TextWrapper>
               <h4>{dish.nome}</h4>
               <div>
                 <p>{dish.descricao}</p>
@@ -75,10 +68,10 @@ const MenuModal = ({
               >
                 Adicionar ao carrinho - {formatPrice(dish.preco)}
               </Button>
-            </TextWrapper>
-          </Info>
-        </ModalContainer>
-      </Background>
+            </S.TextWrapper>
+          </S.Info>
+        </S.ModalContainer>
+      </S.Background>
     )
   }
 }
