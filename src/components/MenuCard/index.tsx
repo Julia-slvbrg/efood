@@ -1,22 +1,14 @@
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
+
 import Button from '../Button'
 import MenuModal from '../MenuModal'
-import { Container } from './styles'
+
 import { RootReducer } from '../../store'
 
-export type Props = {
-  restaurantId: number
-  dish: {
-    id: number
-    foto: string
-    preco: number
-    nome: string
-    descricao: string
-    porcao: string
-  }
-}
-const MenuCard = ({ dish, restaurantId }: Props) => {
+import { Container } from './styles'
+
+const MenuCard = ({ dish, restaurantId }: DishProps) => {
   const [openModal, setOpenModal] = useState(false)
   const { items } = useSelector((state: RootReducer) => state.cart)
 
@@ -25,9 +17,7 @@ const MenuCard = ({ dish, restaurantId }: Props) => {
       const confirmClear = window.confirm(
         'Você só pode adicionar produtos do mesmo restaurante ao carrinho. Se continuar, os produtos já adicionados serão removidos. Deseja continuar?'
       )
-      if (confirmClear) {
-        setOpenModal(true)
-      }
+      if (confirmClear) setOpenModal(true)
     } else {
       setOpenModal(true)
     }
@@ -47,7 +37,11 @@ const MenuCard = ({ dish, restaurantId }: Props) => {
 
         <h4>{dish.nome}</h4>
         <p>{getDescription(dish.descricao)}</p>
-        <Button title="Adicionar ao carrinho" onClick={handleButtonClick}>
+        <Button
+          title="Adicionar ao carrinho"
+          onClick={handleButtonClick}
+          type="button"
+        >
           Adicionar ao carrinho
         </Button>
       </Container>

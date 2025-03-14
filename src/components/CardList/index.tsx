@@ -1,5 +1,5 @@
-import { Restaurant } from '../../pages/Home'
 import Card from '../Card'
+
 import { List, Wrapper } from './styles'
 
 export type Props = {

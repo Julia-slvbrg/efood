@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom'
+
 import logo from '../../assets/images/logo.svg'
 import instagram from '../../assets/images/icons/instagram.svg'
 import facebook from '../../assets/images/icons/facebook.svg'
 import twitter from '../../assets/images/icons/twitter.svg'
-import { Socials, Wrapper } from './styles'
+
 import { Logo } from '../../styles'
-import { Link } from 'react-router-dom'
+import { Socials, Wrapper } from './styles'
 
 export const Footer = () => {
   return (

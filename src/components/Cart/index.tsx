@@ -1,23 +1,26 @@
 import { useDispatch, useSelector } from 'react-redux'
-import removeItem from '../../assets/images/icons/remove-item.svg'
+
 import Button from '../Button'
-import { CartContainer, CartItem, Overlay, Price, Sidebar } from './styles'
+
+import removeItem from '../../assets/images/icons/remove-item.svg'
+
 import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/cart'
-import { formatPrice } from '../MenuModal'
+import { checkout, close, remove } from '../../store/reducers/cart'
+import { formatPrice, getTotalPrice } from '../../utils'
+
+import * as S from './styles'
 
 const Cart = () => {
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const { isCartOpen, items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
 
   const closeCart = () => {
     dispatch(close())
   }
 
-  const getTotalPrice = () => {
-    return items.reduce((accum, current) => {
-      return (accum += current.dish.preco)
-    }, 0)
+  const goToCheckout = () => {
+    closeCart()
+    dispatch(checkout())
   }
 
   const removeFromCart = (nome: string) => {
@@ -25,35 +28,50 @@ const Cart = () => {
   }
 
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
-      <Sidebar>
-        <ul>
-          {items.map((item, index) => (
-            <CartItem key={index}>
-              <img src={item.dish.foto} alt="Prato" />
-              <div>
-                <h3>{item.dish.nome}</h3>
-                <p>{formatPrice(item.dish.preco)} </p>
-              </div>
-              <button>
-                <img
-                  src={removeItem}
-                  onClick={() => removeFromCart(item.dish.nome)}
-                  alt="Retirar produto do carrinho"
-                />
-              </button>
-            </CartItem>
-          ))}
-        </ul>
+    <S.CartContainer className={isCartOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={closeCart} />
+      <S.Sidebar>
+        {items.length > 0 ? (
+          <>
+            <ul>
+              {items.map((item, index) => (
+                <S.CartItem key={index}>
+                  <img src={item.dish.foto} alt="Prato" />
+                  <div>
+                    <h3>{item.dish.nome}</h3>
+                    <p>{formatPrice(item.dish.preco)} </p>
+                  </div>
+                  <button>
+                    <img
+                      src={removeItem}
+                      onClick={() => removeFromCart(item.dish.nome)}
+                      alt="Retirar produto do carrinho"
+                    />
+                  </button>
+                </S.CartItem>
+              ))}
+            </ul>
 
-        <Price>
-          Valor total <span>{formatPrice(getTotalPrice())}</span>
-        </Price>
+            <S.Price>
+              Valor total <span>{formatPrice(getTotalPrice(items))}</span>
+            </S.Price>
 
-        <Button title="Continuar com a entrega">Continuar com a entrega</Button>
-      </Sidebar>
-    </CartContainer>
+            <Button
+              title="Continuar com a entrega"
+              onClick={goToCheckout}
+              type="button"
+            >
+              Continuar com a entrega
+            </Button>
+          </>
+        ) : (
+          <p className="empty-text">
+            O carrinho está vazio, adicione pelo menos um produto para continuar
+            a compra.
+          </p>
+        )}
+      </S.Sidebar>
+    </S.CartContainer>
   )
 }
 
