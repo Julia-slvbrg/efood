@@ -6,15 +6,15 @@ import facebook from '../../assets/images/icons/facebook.svg'
 import twitter from '../../assets/images/icons/twitter.svg'
 
 import { Logo } from '../../styles'
-import { Socials, Wrapper } from './styles'
+import * as S from './styles'
 
 export const Footer = () => {
   return (
-    <Wrapper>
+    <S.Wrapper>
       <Link to="/">
         <Logo src={logo} alt="" />
       </Link>
-      <Socials>
+      <S.Socials>
         <li>
           <Link to="https://www.instagram.com/" target="_blank">
             <img src={instagram} alt="instagram" />
@@ -30,13 +30,13 @@ export const Footer = () => {
             <img src={twitter} alt="twitter" />
           </Link>
         </li>
-      </Socials>
+      </S.Socials>
       <p>
         A efood é uma plataforma para divulgação de estabelecimentos, a
         responsabilidade pela entrega, qualidade dos produtos é toda do
         estabelecimento contratado.
       </p>
-    </Wrapper>
+    </S.Wrapper>
   )
 }
 

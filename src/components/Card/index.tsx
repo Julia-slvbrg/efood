@@ -3,14 +3,7 @@ import { Link } from 'react-router-dom'
 import Tag from '../Tags'
 
 import star from '../../assets/images/star.svg'
-import {
-  CardWrapper,
-  Container,
-  Description,
-  Info,
-  Name,
-  TitleContainer
-} from './styles'
+import * as S from './styles'
 
 type Props = {
   id: number
@@ -32,26 +25,26 @@ export const Card = ({
   description
 }: Props) => {
   return (
-    <CardWrapper>
+    <S.CardWrapper>
       <img src={image} alt="Restaurante" />
-      <Info>
+      <S.Info>
         {highlighted && <Tag>Destaque da semana</Tag>}
         <Tag>{type.charAt(0).toUpperCase() + type.slice(1)}</Tag>
-      </Info>
-      <Container>
-        <TitleContainer>
-          <Name>{placeName}</Name>
+      </S.Info>
+      <S.Container>
+        <S.TitleContainer>
+          <S.Name>{placeName}</S.Name>
           <div>
             <p>{rate}</p>
             <img src={star} alt="Estrela" />
           </div>
-        </TitleContainer>
-        <Description>{description}</Description>
+        </S.TitleContainer>
+        <S.Description>{description}</S.Description>
         <Link to={`/restaurant/${id}`}>
           <Tag $position="bottom">Saiba mais</Tag>
         </Link>
-      </Container>
-    </CardWrapper>
+      </S.Container>
+    </S.CardWrapper>
   )
 }
 

@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom'
 
 import Banner from '../../components/Banner'
-
+import Loader from '../../components/Loader'
 import MenuCardList from '../../components/MenuCardList'
+
 import { useGetMenuQuery } from '../../services/api'
 
 import { MenuContainer } from '../../styles'
@@ -25,7 +26,7 @@ const Restaurant = () => {
           </MenuContainer>
         </>
       ) : (
-        <p>Carregando....</p>
+        <Loader />
       )}
     </>
   )

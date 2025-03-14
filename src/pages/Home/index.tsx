@@ -1,4 +1,5 @@
 import CardList from '../../components/CardList'
+import Loader from '../../components/Loader'
 
 import { useGetRestaurantsQuery } from '../../services/api'
 
@@ -12,7 +13,7 @@ export const Home = () => {
           <CardList restaurants={restaurants} />
         </>
       ) : (
-        <h4>Carregando...</h4>
+        <Loader />
       )}
     </>
   )
