@@ -7,7 +7,7 @@ export const colors = {
   bege2: '#FFF8F2'
 }
 export const breakpoints = {
-  desktop: '11024px',
+  desktop: '1024px',
   tablet: '768px'
 }
 export const GlobalStyle = createGlobalStyle`
@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     margin: 0 auto;
 
-    @media (max-width: ${breakpoints.tablet}) {
+    @media (max-width: ${breakpoints.desktop}) {
       display: flex;
       flex-wrap: wrap;
       align-items: center;

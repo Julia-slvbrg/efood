@@ -31,7 +31,7 @@ export const Container = styled.div`
     width: 100%;
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
+  @media (max-width: ${breakpoints.desktop}) {
     .row {
       display: grid;
       grid-template-rows: 20px auto;
