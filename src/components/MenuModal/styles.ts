@@ -36,7 +36,7 @@ export const ModalContainer = styled.div`
     font-weight: 400;
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
+  @media (max-width: ${breakpoints.desktop}) {
     width: 600px;
   }
 `
@@ -54,7 +54,7 @@ export const Picture = styled.img`
   height: 280px;
   margin: 8px 24px 32px 32px;
 
-  @media (max-width: ${breakpoints.tablet}) {
+  @media (max-width: ${breakpoints.desktop}) {
     width: 200px;
     height: 200px;
     margin-left: 8px;
@@ -75,7 +75,7 @@ export const TextWrapper = styled.div`
   ${BtnContainer} {
     margin: 16px 0 56px 0;
 
-    @media (max-width: ${breakpoints.tablet}) {
+    @media (max-width: ${breakpoints.desktop}) {
       margin-bottom: 20px;
     }
   }

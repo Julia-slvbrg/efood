@@ -23,8 +23,8 @@ export const Container = styled.div`
     z-index: 1;
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
-    height: fit-content;
+  @media (max-width: ${breakpoints.desktop}) {
+    height: 180px;
   }
 `
 export const Info = styled.h3<{ type?: string }>`
@@ -33,7 +33,9 @@ export const Info = styled.h3<{ type?: string }>`
   z-index: 2;
   position: relative;
 
-  @media (max-width: ${breakpoints.tablet}) {
+  @media (max-width: ${breakpoints.desktop}) {
     margin-bottom: ${(props) => (props.type === 'food' ? '80px' : '15px')};
+    position: absolute;
+    margin-top: ${(props) => (props.type === 'food' ? '140px' : '200px')};
   }
 `

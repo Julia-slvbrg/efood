@@ -34,7 +34,7 @@ export const Container = styled(ContainerWrapper)<{ $layout?: string }>`
     }
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
+  @media (max-width: ${breakpoints.desktop}) {
     display: flex;
     justify-content: space-around;
     width: 100%;
