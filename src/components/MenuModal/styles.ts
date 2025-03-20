@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+
+import { breakpoints, colors } from '../../styles'
 import { BtnContainer } from '../Button/styles'
 
 export const Background = styled.div`
@@ -34,6 +35,10 @@ export const ModalContainer = styled.div`
     font-size: 14px;
     font-weight: 400;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 600px;
+  }
 `
 export const CloseIcon = styled.img`
   width: 16px;
@@ -48,6 +53,12 @@ export const Picture = styled.img`
   width: 280px;
   height: 280px;
   margin: 8px 24px 32px 32px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 200px;
+    height: 200px;
+    margin-left: 8px;
+  }
 `
 export const TextWrapper = styled.div`
   width: 656px;
@@ -63,5 +74,9 @@ export const TextWrapper = styled.div`
 
   ${BtnContainer} {
     margin: 16px 0 56px 0;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      margin-bottom: 20px;
+    }
   }
 `

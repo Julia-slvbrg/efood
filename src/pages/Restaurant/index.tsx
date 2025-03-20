@@ -21,6 +21,7 @@ const Restaurant = () => {
             name={restaurantInfo?.titulo}
             banner={restaurantInfo?.capa}
           />
+
           <MenuContainer className="container">
             <MenuCardList restaurant={restaurantInfo} />
           </MenuContainer>

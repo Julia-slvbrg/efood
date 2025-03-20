@@ -6,7 +6,10 @@ export const colors = {
   white: '#FFFFFF',
   bege2: '#FFF8F2'
 }
-
+export const breakpoints = {
+  desktop: '11024px',
+  tablet: '768px'
+}
 export const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
@@ -24,6 +27,13 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
   }
 `
 export const Logo = styled.img`
@@ -37,8 +47,8 @@ export const ContainerWrapper = styled.div`
   align-items: center;
 `
 export const MenuContainer = styled.div`
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-padding: 56px 0 120px 0;
-gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 56px 0 120px 0;
+  gap: 32px;
 `

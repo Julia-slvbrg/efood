@@ -33,10 +33,12 @@ const MenuCard = ({ dish, restaurantId }: DishProps) => {
   return (
     <>
       <Container>
-        <img src={dish.foto} alt="Prato" />
+        <div className='row'>
+          <img src={dish.foto} alt="Prato" />
 
-        <h4>{dish.nome}</h4>
-        <p>{getDescription(dish.descricao)}</p>
+          <h4>{dish.nome}</h4>
+          <p>{getDescription(dish.descricao)}</p>
+        </div>
         <Button
           title="Adicionar ao carrinho"
           onClick={handleButtonClick}
