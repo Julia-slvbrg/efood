@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+
+import { breakpoints, colors } from '../../styles'
 
 export const Container = styled.div`
   height: 280px;
@@ -21,10 +22,18 @@ export const Container = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: fit-content;
+  }
 `
 export const Info = styled.h3<{ type?: string }>`
   font-weight: ${(props) => (props.type === 'food' ? '100' : '900')};
   margin-bottom: ${(props) => (props.type === 'food' ? '157px' : '32px')};
   z-index: 2;
   position: relative;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: ${(props) => (props.type === 'food' ? '80px' : '15px')};
+  }
 `

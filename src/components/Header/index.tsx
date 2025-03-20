@@ -47,7 +47,9 @@ const Header = () => {
                   <Logo src={logo} alt="efood" />
                 </Link>
                 <button onClick={openCartSide}>
-                  <p>{items.length} produtos(s) no carrinho</p>
+                  <p>
+                    {items.length} produtos(s) no <span>carrinho</span>{' '}
+                  </p>
                 </button>
               </S.Container>
             </div>

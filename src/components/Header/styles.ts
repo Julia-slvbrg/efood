@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { colors, ContainerWrapper } from '../../styles'
 import { Link } from 'react-router-dom'
+
+import { breakpoints, colors, ContainerWrapper } from '../../styles'
 
 export const Wrapper = styled(ContainerWrapper)<{ $layout?: string }>`
   background-repeat: no-repeat;
@@ -30,6 +31,17 @@ export const Container = styled(ContainerWrapper)<{ $layout?: string }>`
 
     &:active {
       text-decoration: underline;
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-left: 35px;
+
+    p {
+      display: grid;
     }
   }
 `
